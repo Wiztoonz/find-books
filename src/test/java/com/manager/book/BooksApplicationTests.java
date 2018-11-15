@@ -1,4 +1,4 @@
-package com.manager.books;
+package com.manager.book;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

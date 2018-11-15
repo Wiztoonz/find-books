@@ -1,28 +1,42 @@
-package com.manager.books.model;
+package com.manager.book.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Books {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private int id;
     @Column(name = "Title")
     private String title;
     @Column(name = "Description")
     private String description;
     @Column(name = "Date")
-    private String date;
+    @CreationTimestamp
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     public Books() {
     }
 
-    public Books(String title, String description, String date) {
+    public Books(String title, String description, Date date) {
         this.title = title;
         this.description = description;
         this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -41,11 +55,11 @@ public class Books {
         this.description = description;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
