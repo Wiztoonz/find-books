@@ -1,4 +1,10 @@
-<div *ngFor="let card of cards">
-  <app-card [card]="card" (onDetails)="details($event)"></app-card>
-</div>
+<header>
+  <button mat-fab color="primary" class="btn-add" (click)="openCreateBook()">+</button>
+</header>
+
+<section class="content">
+  <div *ngFor="let card of cards">
+    <app-card [card]="card" (onDetails)="details(card.id)"></app-card>
+  </div>
+</section>
 

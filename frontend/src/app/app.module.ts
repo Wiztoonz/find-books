@@ -11,17 +11,23 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import {AppService} from "./services/app.service";
 import { CardComponent } from './home/card/card.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { CreateBookComponent } from './create-book/create-book.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BookDetailsComponent,
-    CardComponent
+    CardComponent,
+    CreateBookComponent
   ],
+  entryComponents: [CreateBookComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialHelperModule
+    MaterialHelperModule,
+    HttpClientModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
